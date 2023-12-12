@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define Max_Nodes 10
+
+typedef struct node {
+  int data;
+} Node;
+
+Node* createnode(int data) {
+  Node* newnode = (Node*)malloc(sizeof(Node));
+  newnode->data = data;
+  return newnode;
+}
+
+void printarray(Node** treearray, int n) {
+  printf("Array Representation of Binary Tree: \n");
+  for (int i = 0; i < n; i++) {
+    if (treearray[i] -> data != -1) {
+      printf("%d ", treearray[i] -> data);
+    } else {
+      printf("- ");
+    }
+  }
+}
+
+int main() {
+  Node* treearray[Max_Nodes];
+  //Initialization of Array
+  for (int i = 0; i < Max_Nodes; i++) {
+    treearray[i] = createnode(-1);
+  }
+
+  treearray[0] = createnode(1);
+  treearray[1] = createnode(2);
+  treearray[2] = createnode(3);
+  treearray[3] = createnode(4);
+  treearray[4] = createnode(5);
+
+  printarray(treearray, Max_Nodes);
+
+  // Free allocated memory
+  for (int i = 0; i < Max_Nodes; i++) {
+    free(treearray[i]);
+  }
+
+  return 0;
+}

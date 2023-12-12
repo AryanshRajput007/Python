@@ -1,0 +1,303 @@
+/*
+Red Black tree 
+
+1. Red-black tree is a self balancing binary search tree.
+2. Each node is assigned with a color Red or Black.
+3. A set of properties has to be checked to arrange the colors.
+
+Properties/Rules :- 
+1. Each node is either Red or Black.
+2. The root node is always Black and the nill leaves are also Black.
+3. A Red Node must not have a Red chidren.
+4. All path from a Node to a leaves contains the same number of black nodes.
+5. While inserting a node the color provided to the node is Red.
+
+Right Rotation working :- 
+
+1. Left Node "L" becomes new root and the root "N" becomes it's right child.
+2. The right child "LR" becomes the left child of "N".
+3. Nodes "LL" and "R" do not change the position.
+
+Insertion in Red-Black Tree:- 
+
+Scenario 1 :- Node is equal to the root, then recolor the node.
+Scenario 2 :- While your Nodes uncle is equal to Red, recolor parent, grandparent, and uncle.
+Scenario 3 :- If your nodes uncle = black, and forms a triangle, then rotates the node parent and rotate the grandparent to the opposite side of parent, and we will recolor the inserted node and the Grand parent. So we will rotate on the opposite side of the node inserted side. i.e if the node is inserted on the left side than we will call the right rotate function for the parent node and left rotate for the grandparent node.
+Scenario 4 :- If your node uncle is black and forms a line, rotate node Grandparent and recolor the orginal parent and Grandparent. Here we will follow the same rotation concept as above.
+*/
+/*
+public class Main {
+  public static void main(String[] args) {
+    RedBlackTree tree = new RedBlackTree();
+    tree.insert(10);
+    tree.inOrderTraversal();
+    testInsertionAndTraversal();
+    testSearch();
+    testEdgeCases();
+  }
+
+  /*
+  public void fixedRedBlackPropertiesAfterInsert(Node newNode) {
+  while (newNode != root && newNode.parent.color == 1) {
+    if (newNode.parent == newNode.parent.parent.left) {
+      Node uncle = newNode.parent.parent.right;
+
+      if (uncle != null && uncle.color == 1) {
+        // Scenario 2: Recolor the parent, grandparent, and uncle
+        newNode.parent.color = 0; // Black
+        uncle.color = 0; // Black
+        newNode.parent.parent.color = 1; // Red
+        newNode = newNode.parent.parent;
+      } else {
+        if (newNode == newNode.parent.right) {
+          // Scenario 3: Node inserted on the right, left rotate
+          newNode = newNode.parent;
+          rotateLeft(newNode);
+        }
+        // Scenario 4: Node inserted on the left, right rotate the grandparent
+        newNode.parent.color = 0; // Black
+        newNode.parent.parent.color = 1; // Red
+        rotateRight(newNode.parent.parent);
+      }
+    } else {
+      // Symmetric cases for left and right swapped
+      Node uncle = newNode.parent.parent.left;
+
+      if (uncle != null && uncle.color == 1) {
+        // Scenario 2: Recolor the parent, grandparent, and uncle
+        newNode.parent.color = 0; // Black
+        uncle.color = 0; // Black
+        newNode.parent.parent.color = 1; // Red
+        newNode = newNode.parent.parent;
+      } else {
+        if (newNode == newNode.parent.left) {
+          // Scenario 3: Node inserted on the left, right rotate
+          newNode = newNode.parent;
+          rotateRight(newNode);
+        }
+        // Scenario 4: Node inserted on the right, left rotate the grandparent
+        newNode.parent.color = 0; // Black
+        newNode.parent.parent.color = 1; // Red
+        rotateLeft(newNode.parent.parent);
+      }
+    }
+  }
+  // Ensure the root is black
+  root.color = 0; // Black
+}
+  */
+  public static void testSearch() {
+    RedBlackTree tree = new RedBlackTree();
+    int[] keys = {10, 5, 15, 3, 7, 12, 18};
+    for (int key : keys) {
+      tree.insert(key);
+    }
+    int keyToSearch = 7;
+    Node foundNode = tree.search(keyToSearch);
+    if (foundNode != null) {
+      System.out.println("Found: " + foundNode.key);
+    } else {
+      System.out.println(keyToSearch + " not found.");
+    }
+  }
+
+  public static void testEdgeCases() {
+    RedBlackTree tree = new RedBlackTree();
+    int[] keys = {10, 20, 30, 40, 50}; // Already sorted for unbalanced insertion
+    for (int key : keys) {
+      tree.insert(key);
+    }
+    System.out.println("In-Order Traversal:");
+    tree.inOrderTraversal();
+    System.out.println();
+  }
+
+  public static void testInsertionAndTraversal() {
+    RedBlackTree tree = new RedBlackTree();
+    int[] keys = {10, 5, 15, 3, 7, 12, 18};
+    for (int key : keys) {
+      tree.insert(key);
+    }
+    System.out.println("In-Order Traversal:");
+    tree.inOrderTraversal();
+    System.out.println();
+  }
+}
+
+class Node {
+  int key;
+  Node parent;
+  Node left;
+  Node right;
+  int color;
+
+  public Node(int key) {
+    this.key = key;
+    parent = null;
+    left = null;
+    right = null;
+    color = 1;
+  }
+}
+
+class RedBlackTree {
+  Node root;
+
+  public RedBlackTree() {
+    root = null;
+  }
+
+  public void insert(int key) {
+    Node node = root;
+    Node parent = null;
+
+    // Traverse the tree to the left or right depending on the key
+    while (node != null) {
+      parent = node;
+      if (key < node.key) {
+        node = node.left;
+      } else if (key > node.key) {
+        node = node.right;
+      } else {
+        throw new IllegalStateException("BST already contains a node with key " + key);
+      }
+    }
+
+    // Insert new node
+    Node newNode = new Node(key);
+    if (parent == null) {
+      root = newNode;
+    } else if (key < parent.key) {
+      parent.left = newNode;
+    } else {
+      parent.right = newNode;
+    }
+    newNode.parent = parent;
+
+    fixedRedBlackPropertiesAfterInsert(newNode);
+  }
+
+  private void fixedRedBlackPropertiesAfterInsert(Node newNode) {
+  Node parent = newNode.parent;
+  if (parent == null) {
+    newNode.color = 0;
+    return;
+  }
+  if (parent.color == 0) {
+    return;
+  }
+  Node grandParent = parent.parent;
+  if (grandParent == null) {
+    parent.color = 0;
+    return;
+  }
+  Node uncle = getUncle(parent);
+  if (uncle != null && uncle.color == 1) {
+    parent.color = 0;
+    grandParent.color = 1;
+    uncle.color = 0;
+    fixedRedBlackPropertiesAfterInsert(grandParent);
+  } else {
+    if (grandParent.left == parent) {
+      if (parent.left == newNode) {
+        rotateRight(grandParent);
+        int temp = parent.color;
+        parent.color = grandParent.color;
+        grandParent.color = temp;
+      } else {
+        rotateLeft(parent);
+        fixedRedBlackPropertiesAfterInsert(parent);
+      }
+    } else {
+      if (parent.right == newNode) {
+        rotateLeft(grandParent);
+        int temp = parent.color;
+        parent.color = grandParent.color;
+        grandParent.color = temp;
+      } else {
+        rotateRight(parent);
+        fixedRedBlackPropertiesAfterInsert(parent);
+      }
+    }
+  }
+}
+
+
+  private Node getUncle(Node parent) {
+    Node grandParent = parent.parent;
+    if (grandParent.left == parent) {
+      return grandParent.right;
+    } else if (grandParent.right == parent) {
+      return grandParent.left;
+    } else {
+      throw new IllegalStateException("Invalid");
+    }
+  }
+
+  private void rotateRight(Node node) {
+    Node leftChild = node.left;
+    Node parent = node.parent;
+    node.left = leftChild.right;
+    if (leftChild.right != null) {
+      leftChild.right.parent = node;
+    }
+    leftChild.right = node;
+    node.parent = leftChild;
+    replaceParentsChild(parent, node, leftChild);
+    leftChild.parent = parent;
+  }
+
+  private void rotateLeft(Node node) {
+    Node parent = node.parent;
+    Node rightChild = node.right;
+
+    node.right = rightChild.left;
+    if (rightChild.left != null) {
+      rightChild.left.parent = node;
+    }
+
+    rightChild.left = node;
+    node.parent = rightChild;
+
+    replaceParentsChild(parent, node, rightChild);
+  }
+
+  public void replaceParentsChild(Node parent, Node oldChild, Node newChild) {
+    if (parent == null) {
+      root = newChild;
+    } else if (parent.left == oldChild) {
+      parent.left = newChild;
+    } else if (parent.right == oldChild) {
+      parent.right = newChild;
+    } else {
+      throw new IllegalStateException("Node is not a valid child");
+    }
+  }
+
+  public Node search(int key) {
+    Node node = root;
+    while (node != null) {
+      if (node.key == key) {
+        return node;
+      } else if (key < node.key) {
+        node = node.left;
+      } else {
+        node = node.right;
+      }
+    }
+    return null;
+  }
+
+  public void inOrderTraversal() {
+    inOrderTraversal(root);
+  }
+
+  private void inOrderTraversal(Node node) {
+    if (node != null) {
+      inOrderTraversal(node.left);
+      System.out.print(node.key + " ");
+      inOrderTraversal(node.right);
+    }
+  }
+}
+*/

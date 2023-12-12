@@ -1,0 +1,116 @@
+import java.util.*;
+
+public class Main {
+    // Function for Inorder Traversal Iterative Method
+    private static List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
+        while (true) {
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+            if (stack.isEmpty()) {
+                break;
+            }
+            current = stack.pop();
+            result.add(current.val);
+            current = current.right;
+        }
+        return result;
+    }
+
+    // Recursive Method for Inorder Traversal
+    public static List<Integer> inorder(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root != null) {
+            result.addAll(inorder(root.left));
+            result.add(root.val);
+            result.addAll(inorder(root.right));
+        }
+        return result;
+    }
+
+    // Function for Preorder Traversal Iterative Method
+    private static List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
+        while (true) {
+            while (current != null) {
+                result.add(current.val);
+                stack.push(current);
+                current = current.left;
+            }
+            if (stack.isEmpty()) {
+                break;
+            }
+            current = stack.pop();
+            current = current.right;
+        }
+        return result;
+    }
+
+    // Recursive Method for Preorder Traversal
+    public static List<Integer> preorder(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root != null) {
+            result.add(root.val);
+            result.addAll(preorder(root.left));
+            result.addAll(preorder(root.right));
+        }
+        return result;
+    }
+
+    // Recursive Method for Postorder Traversal
+    public static List<Integer> postorder(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root != null) {
+            result.addAll(postorder(root.left));
+            result.addAll(postorder(root.right));
+            result.add(root.val);
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        // Inorder traversal using iterative method
+        List<Integer> inorderResult = inorderTraversal(root);
+        System.out.println("Inorder Traversal (Iterative): " + inorderResult);
+
+        // Inorder traversal using recursive method
+        List<Integer> inorderRecursiveResult = inorder(root);
+        System.out.println("Inorder Traversal (Recursive): " + inorderRecursiveResult);
+
+        // Preorder traversal using iterative method
+        List<Integer> preorderResult = preorderTraversal(root);
+        System.out.println("Preorder Traversal (Iterative): " + preorderResult);
+
+        // Preorder traversal using recursive method
+        List<Integer> preorderRecursiveResult = preorder(root);
+        System.out.println("Preorder Traversal (Recursive): " + preorderRecursiveResult);
+
+        // Postorder traversal using recursive method
+        List<Integer> postorderRecursiveResult = postorder(root);
+        System.out.println("Postorder Traversal (Recursive): " + postorderRecursiveResult);
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int val) {
+        this.val = val;
+        left = null;
+        right = null;
+    }
+}

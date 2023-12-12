@@ -1,0 +1,61 @@
+import java.util.*;
+
+class Treenode
+{
+  int val;
+  Treenode left;
+  Treenode right;
+  
+  Treenode(){
+    
+  }
+  Treenode(int val)
+  {
+    this.val = val;
+  }
+  Treenode(int val, Treenode left, Treenode right)
+  {
+    this.val = val;
+    this.left = left;
+    this.right = right;
+  }
+}
+
+class ItterativeTreeTraversal
+{
+  static List<Integer> result;
+  public staic void main(String[] args)
+  {
+    Treenode left = new Treenode(2);
+    Treenode right = new Treenode(3);
+    Treenode root = new Treenode(1,left,right);
+    left.left = new Treenode(4);
+    left.right = new Treenode(5);
+    right.left = new Treenode(6);
+    right.right = new Treenode(7);
+    result = new ArrayList<Integer>();
+    System.out.println("Preorder Traversal :- "+ preorderTraversal(root));
+    result = new ArrayList<Integer>();
+    System.out.println("Inorder Traversal :- "+ inorderTraversal(root));
+    result = new ArrayList<Integer>();
+    System.out.println("Postorder Traversal :- "+ postorderTraversal(root));
+  }
+  private static List<Integer> inorderTraversal(Treenode root)
+  {
+    Stack<Treenode> stack = new Stack<Treenode>();
+    Treenode current = root;
+    while(true)
+    {
+      while(currrent != null)
+      {
+        stack.push(current);
+        current = current.left;
+      }
+      if(stack.isEmpty()) break;
+      current = stack.pop();
+      result.add(current.val);
+      current = current.right;
+    }
+    return result;
+  }
+}

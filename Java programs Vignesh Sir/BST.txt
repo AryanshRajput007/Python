@@ -1,0 +1,92 @@
+/*
+What is BST?
+
+A binary search tree is a Binary tree whose nodes contain a key, in which the left sub tree of a node contains only key that are less than the parent node and the right subtree contains the keys that are greater than the parent node.
+
+Properties of BST :-
+1. Faster access to node via its key.
+2. Depending on the use of the BST :-  
+  2:1. The height of the BST should be as low as possible(Balanced)
+  2:2. The frequently accessed key are closed to the root, while           depth of nodes that are accessed not so frequently does not         matter(Optimal BST).
+*/
+
+/*
+class Node {
+  int data;
+  Node left;
+  Node right;
+
+  public Node(int data) {
+    this.data = data;
+    left = null;
+    right = null;
+  }
+}
+
+class BinarySearchTree {
+  Node root;
+  public BinarySearchTree() {
+    root = null;
+  }
+  public void insert(int data) {
+    root = insertRec(root, data);
+  }
+
+  private Node insertRec(Node root, int data) {
+    if(root == null) {
+      root = new Node(data);
+      return root;
+    }
+    if(data < root.data) {
+      root.left = insertRec(root.left, data);
+    }
+    else if(data > root.data) {
+      root.right = insertRec(root.right, data);
+    }
+
+    return root;
+  }
+  
+  // Function to search a value in the BST
+  public boolean search(int data) {
+    return searchRec(root, data);
+  }
+
+  private boolean searchRec(Node root, int data) {
+    if(root == null) {
+      return false;
+    }
+    if(data == root.data) {
+      return true;
+    } else if(data < root.data) {
+      return searchRec(root.left, data);
+    } else {
+      return searchRec(root.right, data);
+    }
+  }
+}
+
+public class Main {
+  public static void main(String [] args) {
+    BinarySearchTree bst = new BinarySearchTree();
+    bst.insert(50);
+    bst.insert(30);
+    bst.insert(70);
+    bst.insert(20);
+    bst.insert(40);
+    bst.insert(60);
+    bst.insert(80);
+
+    System.out.println("Search for 40: " + bst.search(40));
+  }
+}
+*/
+/*
+Step 1 :- If root is null then we will return root.
+
+Step 2.1 :- if key < root.val then we will recursively call the delete function and pass the parameters root.left and key.
+
+Step 2.2 :- If key > root.val then we will recursively call the delete function and pass the parameters root.left and key. 
+
+Step 2.3 :- 
+*/

@@ -1,0 +1,5 @@
+It is a technique of mapping a large chunk of data using hashing functions.
+It is also known as Message Digest function.
+
+1. Hash Functions :- It maps the arbitary size of the data to the fixed size of the data. It returns the small integer value known as hash value. It returns Hash Value, Hash Sum, and Hash Codes.
+2. Hash Table :- It is used to store key. It uses the Hash value uses the Hash Function to generate the index.

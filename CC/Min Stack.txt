@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node {
+    int data;
+    struct Node *next;
+} Node;
+
+Node *createnode(int val) {
+    Node *newnode = (Node*)malloc(sizeof(Node));
+    newnode->data = val;
+    newnode->next = NULL;
+    return newnode;
+}
+
+void push(Node **top, Node **Min_top, int val) {
+    Node *newnode = createnode(val);
+    if (*top == NULL) {
+        *top = newnode;
+    } else {
+        newnode->next = *top;
+        *top = newnode;
+    }
+    if (*Min_top == NULL || val < (*Min_top)->data) {
+        newnode = createnode(val);
+        newnode->next = *Min_top;
+        *Min_top = newnode;
+    }
+}
+
+int pop(Node **top, Node **Min_top) {
+    if (*top == NULL) {
+        printf("Stack is empty\n");
+        return -1;
+    }
+    int val = (*top)->data;
+    Node *temp = *top;
+    *top = (*top)->next;
+    if (val == (*Min_top)->data) {
+        Node *Min_temp = *Min_top;  // Corrected line
+        *Min_top = (*Min_top)->next;
+        free(Min_temp);
+    }
+    free(temp);
+    return val;
+}
+
+
+
+int getMin(Node *Min_top) {
+    if (Min_top == NULL) {
+        printf("Stack is empty\n");
+        return -1;
+    }
+    return Min_top->data;
+}
+
+int main() {
+    Node *top = NULL;
+    Node *Min_top = NULL;
+
+    push(&top, &Min_top, 3);
+    push(&top, &Min_top, 5);
+    push(&top, &Min_top, 2);
+    push(&top, &Min_top, 1);
+
+    printf("Minimum element: %d\n", getMin(Min_top));
+
+    pop(&top, &Min_top);
+    printf("Minimum element after popping: %d\n", getMin(Min_top));
+
+    return 0;
+}

@@ -1,0 +1,30 @@
+IMP :- 
+
+Unit 6 :-
+
+Concurrency Control (2 marks)
+Explain the transaction process diagram.
+Explain Serializability
+Explain data recovery
+Types of Schedule
+Define lock based protocol
+
+Unit 7:- 
+
+Pipeline and Materialization.
+
+Important DSA programs:-
+
+1. Max and Min/ frequent element/ Remove duplicates from an array.
+2. Quick Sort.
+3. Infix to Postfix using stacks.
+4. Interpolation Search
+5. Stack using array.
+6. Stack using linked list.
+7. Circular Doubly linked list (any two functions).
+8. Queue using array.
+9. Queue using Linked list.
+10. Tree Traversals.
+11. Binary Search Tree
+12. Evaluation of Postfix using Stacks
+13. Graph.

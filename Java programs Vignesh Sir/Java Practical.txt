@@ -1,0 +1,176 @@
+/*
+import java.util.ArrayList;
+
+class Main {
+  public static void main(String [] args) {
+    ArrayList<String> animals = new ArrayList<>();
+    animals.add("Dogs");
+    animals.add("Cats");
+    animals.add("Horse");
+    animals.add(1, "Tiger");
+    System.out.println(animals);
+    
+    //Fetching element
+    System.out.println("The element at 2 index is : " + animals.get(2));
+    
+    //Deleting Element using Index
+    animals.remove(2);
+    System.out.println("Now we have removing 2 index element : " + animals);
+    
+    //readding the delted Element
+    animals.add(2, "Cats");
+    
+    //Deleting Element using Name
+    animals.remove("Dogs");
+    System.out.println("Now we have removing 2 index element : " + animals);
+    
+    //readding the delted Element
+    animals.add(0, "Dogs");
+    
+    //Checking the size of the Array List
+    System.out.println("The size of the list is : " + animals.size());
+    
+    //Printing without Square brackets
+    for(String Animal : animals) {
+      System.out.print(Animal + ", ");
+    }
+    
+    System.out.print("\n");
+    System.out.println("The Index of Horse is : " + animals.indexOf("Horse"));
+    System.out.println("The list conatins Tiger : " + animals.contains("Tiger"));
+  } 
+}
+*/
+
+/*
+import java.util.Vector;
+
+class Main {
+  public static void main(String[] args) {
+    Vector<String> animals = new Vector<>();
+    animals.add("Dogs");
+    animals.add("Cats");
+    animals.add("Horse");
+    animals.add(1, "Tiger");
+    System.out.println(animals);
+    
+    //Using AddAll(), it's like a concat function
+    Vector<String> Languages = new Vector<>();
+    Languages.add("Java");
+    Languages.add("C++");
+    Languages.add("Kotlin");
+    Languages.add("Python");
+    
+    Languages.addAll(animals);
+    System.out.println(Languages);
+
+    // Fetching element
+    System.out.println("The element at 2 index is: " + animals.get(2));
+
+    // Deleting Element using Index
+    animals.remove(2);
+    System.out.println("Now we have removed the element at index 2: " + animals);
+
+    // Re-adding the deleted Element
+    animals.add(2, "Cats");
+
+    // Deleting Element using Name
+    animals.remove("Dogs");
+    System.out.println("Now we have removed the element 'Dogs': " + animals);
+
+    // Re-adding the deleted Element
+    animals.add(0, "Dogs");
+
+    // Checking the size of the Vector
+    System.out.println("The size of the vector is: " + animals.size());
+
+    // Printing without Square brackets
+    for (String animal : animals) {
+      System.out.print(animal + ", ");
+    }
+
+    System.out.print("\n");
+    System.out.println("The Index of Horse is: " + animals.indexOf("Horse"));
+    System.out.println("The vector contains Tiger: " + animals.contains("Tiger"));
+  }
+}
+*/
+/*
+import java.util.ArrayList;
+import java.util.Iterator;
+
+class Main {
+  public static void main(String[] args) {
+    ArrayList<Integer> numbers = new ArrayList<>();
+    numbers.add(1);
+    numbers.add(2);
+    numbers.add(3);
+    numbers.add(1, 4);
+    System.out.println(numbers);
+
+    Iterator<Integer> iterate = numbers.iterator();
+    int element = iterate.next();
+    System.out.println("Accessed Element: " + element);
+
+    iterate.remove();//This is a no return type function
+    System.out.println("Removed Element: " + element);
+
+    System.out.print("Updated ArrayList: ");
+    while(iterate.hasNext()) {
+      iterate.forEachRemaining(value -> System.out.print(value + ", "));
+    }
+    
+    //Another Way
+    //iterate.forEachRemaining(value -> System.out.print(value + ", "));
+  }
+}
+*/
+/*
+import java.util.Map;
+import java.util.HashMap;
+
+class Main {
+  public static void main(String[] args) {
+    Map<String, Integer> animals = new HashMap<>();
+
+    // Adding elements to the HashMap
+    animals.put("Tiger", 1);
+    animals.put("Lion", 2);
+    animals.put("Elephant", 3);
+    animals.put("Giraffe", 4);
+
+    System.out.println("HashMap: " + animals);
+
+    // Accessing an element by key
+    int tigerCount = animals.get("Tiger");
+    System.out.println("The count of Tigers is: " + tigerCount);
+
+    // Removing an element by key
+    animals.remove("Elephant");
+    System.out.println("HashMap after removing Elephant: " + animals);
+
+    // Updating an element by key
+    animals.put("Lion", 5);
+    System.out.println("HashMap after updating Lion count: " + animals);
+
+    // Checking if a key exists in the HashMap
+    boolean containsGiraffe = animals.containsKey("Giraffe");
+    System.out.println("Does the HashMap contain Giraffe? " + containsGiraffe);
+
+    // Checking if a value exists in the HashMap
+    boolean containsCount2 = animals.containsValue(2);
+    System.out.println("Does the HashMap contain the count 2? " + containsCount2);
+
+    // Size of the HashMap
+    int size = animals.size();
+    System.out.println("Size of the HashMap: " + size);
+
+    // Iterating over the HashMap
+    System.out.print("HashMap entries: ");
+    for (HashMap.Entry<String, Integer> entry : animals.entrySet()) {
+      System.out.print(entry.getKey() + " = " + entry.getValue() + ", ");
+    }
+    System.out.println();
+  }
+}
+*/

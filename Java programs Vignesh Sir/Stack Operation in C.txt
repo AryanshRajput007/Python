@@ -1,0 +1,60 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node {
+    int data;
+    struct node *next;
+}Node;
+
+Node *createnode(int val) {
+    Node *newnode = (Node*)malloc(sizeof(Node));
+    newnode -> data = val;
+    newnode -> next = NULL;
+    return newnode;
+}
+
+void push(Node **top, int val) {
+    Node *newnode = createnode(val);
+    if(*top == NULL) {
+        *top = newnode;
+        return;
+    }
+    newnode -> next = (*top);
+    *top = newnode;
+}
+
+int pop(Node **top) {
+    if(*top == NULL) {
+        printf("The Stack is underflow");
+        return 0;
+    }
+    Node *temp = *top;
+    *top = (*top) -> next;
+    int popped_element = temp -> data;
+    free(temp);
+    return popped_element;
+}
+
+int peek(Node **top) {
+    if(*top == NULL) {
+        printf("Stack is empty");
+        return 0;
+    }
+    int val = (*top) -> data;
+    return val;
+}
+
+int main() {
+    // Write C code here
+    Node *top = NULL;
+    push(&top, 10);
+    push(&top, 20);
+    push(&top, 30);
+    int val = pop(&top);
+    printf("%d \n", val);
+    val = peek(&top);
+    printf("%d",val);
+
+    return 0;
+}

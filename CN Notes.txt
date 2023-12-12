@@ -1,0 +1,18 @@
+Cisco Packet Tracer 
+
+If same type of device is connected to each other then the cable of connection is Cross-over cable and if we connect two different then we use the normal cable.
+
+For basic connection between two pc :-
+Steps :
+1. First of all click on the n-devices symbol.
+2. Now drag on the computer symbol and take tewo computers.
+3. Now use a cable to connect both the PC's. The cable connection will be connected using cross over cable.
+4. Now we have give them an IP address.
+5. To give an IP address click on the computer, now go to desktop, then p configuration, then IP address then give the IP address, click enter and then exit.
+6. Now click on the add simple PDU, the PDU option has an envelope type symbol.
+7. Now click on the first computer to make it the sender, and the second computer to make it the reciever.
+8. Now click on the simulation button, and click on play.
+
+
+Now to create a star topology. 
+1. First of all take a hub. Then the same procedure as above.

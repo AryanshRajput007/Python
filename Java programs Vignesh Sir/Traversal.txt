@@ -1,0 +1,95 @@
+/*
+  
+  Inorder traversal algorithm Itterative Method
+
+  Step 1 :- Create a Stack.
+
+  Step 2 :- Initialize current node = root.
+
+  Step 3 :- while(true):
+    
+  Step 3.1 :-while(current -> Node != NULL):
+
+  Step 3.1.1 :-push current node in the stack.
+               
+  Step 3.1.2 :-update current node as current -> left
+                
+  Step 3.2 :- If Stack is empty
+
+  Step 3.3 :- current = current -> Stack(pop)
+
+  Step 3.4 :- Add the current node values to the result array
+
+  Step 3.5 :- Update current = current -> right
+
+  Step 4 :- return result.
+  
+*/
+
+/*
+  
+  Preorder traversal algorithm Itterative Method
+
+  Step 1 :- Create a Stack.
+
+  Step 2 :- Initialize current node = root.
+
+  Step 3 :- while(true)
+
+  Step 3.1 :- while(current -> Node != NULL):
+                
+  Step 3.1.1 :- Add the current node values to the result array
+
+  Step 3.1.2 :- push current node in the stack.
+
+  Step 3.1.3 :- current = current -> left
+
+  Step 3.2 :- If stack is empty then break 
+
+  Step 3.3 :- Make the current node = pop(Stack) 
+
+  Step 3.4 :- current = current -> right
+
+  Step 3.5 :- Return result.
+
+  */
+
+  //PostOrder Traversal algorithm Iterative Method
+
+  /*
+  Step 1 :- Create a Stack.
+
+  Step 2 :- Initialize current = root.
+
+  Step 3 :- Initialize previous node = NULL 
+
+  Step 4 :- while(true) 
+
+  Step 4.1 :- while(current != NULL)
+
+  Step 4.1.1 :- push current in the stack
+
+  Step 4.1.2 :- Update current = current.left
+
+  Step 4.2 :- if(isempty(stack)) then break
+
+  Step 4.3 :- while(current == NULL && isnotempty(stack))
+
+  Step 4.3.1 :- current = stack.peek
+
+  Step 4.3.2 :- If current.right == NULL || current.right == previous
+
+  Step 4.3.2.1 :- Add current.val in result array 
+
+  Step 4.3.2.2 :- stack.pop
+
+  Step 4.3.2.3 :- previous = current
+
+  Step 4.3.2.4 :- current = NULL
+
+  Step 4.3.3 :- else
+
+  Step 4.3.3.1 :- current = current.right
+
+  Step 5 :- return result
+  */

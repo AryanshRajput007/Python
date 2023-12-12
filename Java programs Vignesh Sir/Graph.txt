@@ -1,0 +1,138 @@
+1. Graph is a non-linear data structure. Graphs comprises of Node/Vertices and Edges.
+2. In tree we have a root, but in graph we don't have root.
+3. A Graph can be a cycle, but in tree we can not find a cycle.
+4. In Graph we have loops, but in tree we can not find loops.
+5. In a perfect graph having "n" no. of nodes, than it will have "n" no. of edges.
+6. Graph may or may not have directions.
+
+Graph Traversal :- 
+
+1. Depth First Search Traversal :- It is an algorithm in which a starting vertex is given, and the algoritm moves to it's adjacent vertex and try to traverse in the same manner.
+2. Breath First Search Traversal(BFS) :- It is an algorithm which is used to visit all the nodes, where one node is selected and all of the adjacent Nodes are visited one by one. Once done it moves furthur, to check the another vertex and it's adjacent vertices.
+
+
+Algorithm for BFS :-
+
+Step 1.1 :-  Begin : Define an empty Queue.
+Step 1.2 :- Mark all nodes as unvisited.
+Step 1.3 :- Enque the starting vertex
+Step 1.4 :- While Queue is not empty.
+Step 1.4.1 :- Dequeue and store the value in a flag variable named "u".
+Step 1.4.2 :- Display the vertex "u".
+Step 1.4.3 :- Create a for loop, for all vertex ajacent with "u".
+Step 1.4.3.1 :- if vertices[i] is unvisited
+Step 1.4.3.1.1 :- Mark vertices[i] as temp visited.
+Step 1.4.3.1.2 :- Add vertex in the Queue.
+Step 1.4.4 :- Mark "u" as completely visited.
+
+DFS Algorithm:
+Step 1: Mark all nodes as unvisited.
+Step 2: Create an empty stack.
+Step 3: Push the starting vertex into the stack.
+Step 4: While the stack is not empty:
+Step 4.1: Pop the top element from the stack and set it to "u".
+Step 4.2: Display the node.
+Step 4.3: If "u" is not visited:
+Step 4.3.1: Mark "u" as visited.
+Step 4.3.1.1: For all nodes connected to "u":
+Step 4.3.1.1.1: If the ith vertex is unvisited:
+Step 4.3.1.1.1.1: Push vertex[i] into the stack.
+Step 4.3.1.1.1.2: Mark the ith vertex as visited.
+
+Terminologies :-
+
+1. It's a finite or infinite set of edges that the set of vertices.
+2. A path connectes two or more nodes.
+3. Closed path :- If the start and end node of a path is same, then it is known as closed path.
+4. If a path does not repeat any node than it is a simple path.
+5. The number of edges connecting a vertex is known as the degree of the vertex.
+6. A simple graph of "n" nodes and "n" edges, forming a cycle of length "n" is known as a cycle graph. Note :- n >= 3. 
+7. In Cycle Graph the degree of each vertex is 2.
+8. If all the nodes are connected with an edge, than it is known as connected graph. Also there is always be a path between each vertex.
+9. There is an edge between every single pair of nodes, is known as Complete Graph.
+10. In Complete Graph Every node will have a degree (n - 1).
+11. Weighted Graph :- 
+12. Loop/Self-loop :- When a edge connects the vertex to itself.
+
+Types of Graphs :- 
+
+1. Directed Graph :- If a graph contains direction between one node and other node, then it is termed as Directed Graph. It is undirection Graph.
+2. Undirected Graph :- If the graph does not contain direction, then it is termed as Undirected Graph.
+
+Graph representation is a technique to store the graph in the memory of the computer. 
+
+1. Adjacency Matrix :- It is a 2D array of size "V * V" where V is the number of nodes. The elements of the matrix denotes, whether there is any edge that connects the pair of nodes.
+Example:- 
+
+a-------b
+|       |
+|       |
+|       |
+c       d
+ \     /
+  \   /
+   \ /
+    e
+
+
+|0  1  1  0  0|
+|1  0  0  1  0|
+|1  0  0  0  1|
+|0  1  0  0  1|
+|0  0  1  1  0|
+
+
+
+Adjacency Matrix: A 2D matrix where each cell represents an edge between two vertices. If the graph is unweighted, the cell contains a 1 or 0 to indicate the presence or absence of an edge. If the graph is weighted, the cell contains the weight of the edge or a special value (e.g., infinity) to indicate no edge.
+Adjacency List: A collection of lists or arrays, where each list/array represents a vertex and contains the vertices adjacent to it. This representation is more space-efficient for sparse graphs.
+Edge List: A list of edges, where each edge is represented by a pair of vertices. This representation is simple and compact, but it may require additional processing to access the neighbors of a vertex.
+Incidence Matrix: A 2D matrix where each row represents a vertex and each column represents an edge. The cell contains a 1 or 0 to indicate whether the vertex is incident to the edge
+
+/*
+class Graph {
+  class Edge {
+    int src, dest;
+  }
+  int vertices, edges;
+  Edge[] edge;
+
+  Graph(int vertices, int edges) {
+    this.vertices = vertices;
+    this.edges = edges;
+    edge = new Edge[edges];
+    for(int i = 0; i < edges; i++) {
+      edge[i] = new Edge();
+    }
+  }
+  public static void main(String [] args) {
+    int noVertices = 5;
+    int noEdges = 7;
+    Graph g = new Graph(noVertices, noEdges);
+
+    g.edge[0].src = 1;
+    g.edge[0].dest = 2;
+
+    g.edge[1].src = 1;
+    g.edge[1].dest = 3;
+
+    g.edge[2].src = 1;
+    g.edge[2].dest = 4;
+
+    g.edge[3].src = 2;
+    g.edge[3].dest = 4;
+
+    g.edge[4].src = 2;
+    g.edge[4].dest = 4;
+
+    g.edge[5].src = 2;
+    g.edge[5].dest = 4;
+
+    g.edge[6].src = 2;
+    g.edge[6].dest = 4;
+
+    g.edge[7].src = 2;
+    g.edge[7].dest = 4;
+  }
+}
+
+*/

@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define Max_Nodes 100
+
+typedef struct node {
+    int data;
+    struct node * left;
+    struct node * right;
+} Node;
+
+Node *createnode(int val) {
+    Node *newnode = (Node*)malloc(sizeof(Node));
+    newnode->data = val;
+    newnode->left = NULL;
+    newnode->right = NULL;
+    return newnode;
+}
+
+void initialization(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        arr[i] = -1; // This represents an Empty Node.
+    }
+}
+
+void Insertinarray(int arr[], int n, int data, int index) {
+    if (index < n) {
+        arr[index] = data;
+    }
+}
+
+void display(int arr[], int n) {
+    printf("Binary Tree: ");
+    for (int i = 0; i < n; i++) {
+        if (arr[i] != -1) {
+            printf("%d ", arr[i]);
+        }
+    }
+    printf("\n");
+}
+//
+
+//
+int main() {
+    int binarytree[Max_Nodes];
+    int size = 0; // Current size of the Binary tree
+
+    initialization(binarytree, Max_Nodes);
+    Node *Root = createnode(1);
+    Root->left = createnode(2);
+    Root->right = createnode(3);
+    Root->left->left = createnode(4);
+    Root->left->right = createnode(5);
+
+    Insertinarray(binarytree, Max_Nodes, Root->data, size++);
+    Insertinarray(binarytree, Max_Nodes, Root->left->data, size++);
+    Insertinarray(binarytree, Max_Nodes, Root->right->data, size++);
+    Insertinarray(binarytree, Max_Nodes, Root->left->left->data, size++);
+    Insertinarray(binarytree, Max_Nodes, Root->left->right->data, size++);
+
+    display(binarytree, size);
+
+    return 0;
+}

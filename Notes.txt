@@ -1,0 +1,39 @@
+- Compile :- It is the process of find the error.
+  Python also has a compiler, but it is still termed as a interpreter language.
+  When a code is executed a .pyc file is created.
+
+  Now suppose if you wrote a code and save a file like test.py
+
+  Now to compile the file you can using the command :- 
+  python -m py_complie test.py
+
+  Here we can also use "py" in place of python i.e 
+    py -m py_compile test.py
+  Here -m is known as module name.
+  
+
+  This command will generate a file in "_pycache" folder and the extension of the file will be .pyc
+
+When a code is compiled in "C" then it directly contacts the OS.
+
+But in "Java" the compiled code is termed as Byte Code, and they create a concept of Virtual Machine (Programable Machine), So now first the code is converted into Byte Code, then it goes to JVM, and now we have to reach the OS, but as a machine can understand another machine more perfectly, so they created a JNI(Java Native Interface) so that the Byte Code is contacts the JNI then the JNI contact the OS. JNI contains some interfaces that helps the OS to understand the code.
+
+Now in python we PVM(Python Virtual Machine) and it also implements some methods from the JNI and in python the JNI name is not changed.
+
+The working od JNI is like, when we try to execute a code the code is provided to JNI, it uses it method to interpret the code and then give the OS the revised code.
+
+
+- Byte Code :- It is a special type of code. It contains special types of symbols ans characters. Each symbol or Character to take one byte to store itself in memory. This is the reason why it is called Byte Code.
+
+Modulo 3 :- Ended in 2010. Python also have some features of the modulo 3 language.
+
+Suppose you wrote a code :-
+
+import dis
+print("hello")
+
+py -m dis test.py (Use this code on CMD)
+
+Using the above command we can get the machine code or the backend code.
+
+
