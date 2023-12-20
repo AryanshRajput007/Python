@@ -12,6 +12,8 @@ Flask = "^2.2.0"
 urllib3 = "^1.26.12"
 requests = "2.31.0"
 pandas = "2.1.4"
+matplotlib = "3.8.2"
+discord = "2.3.2"
 
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"

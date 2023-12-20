@@ -1,0 +1,13 @@
+Commands :-
+1. ls
+2. ls -l
+3. ls -a
+4. pwd
+5. date
+6. touch t1.txt
+7. mkdir os
+8. echo "YO! Mosi Mosi"
+9. rmdir os
+10. mv t1.txt t2.txt
+11. clear
+12. cal

@@ -4,6 +4,7 @@ class Node:
     self.value = value
     self.next = None
 
+
 list_input = [
   int(x) for x in input("Enter the values separated by space: ").split()
 ]

@@ -1,5 +1,6 @@
 { pkgs }: {
   deps = [
+    pkgs.nodePackages.prettier
     pkgs.tk
     pkgs.tcl
     pkgs.qhull

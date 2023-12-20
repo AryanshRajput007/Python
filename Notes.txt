@@ -1,3 +1,5 @@
+Variable :- It is the name of the reserved cell in the memory.
+
 - Compile :- It is the process of find the error.
   Python also has a compiler, but it is still termed as a interpreter language.
   When a code is executed a .pyc file is created.
@@ -36,4 +38,70 @@ py -m dis test.py (Use this code on CMD)
 
 Using the above command we can get the machine code or the backend code.
 
+Python Identifiers :- Identifier is a object which identify what it is.Identifier can also be termed as names. It can be a variable name, function name, class name, etc. 
 
+Rules for Identifiers :- 
+1. We can define an identifier with a single character or multiple characters too. Eg :- a = 10 ; A = 20 ; _ = 100
+2. Identifiers should not start with a digit but can end with a digit. Eg :- A32 = 1 ; a21 = 3.14
+3. Python identifiers are case sensitive. Eg :- a = 10 and A = 20 so a != A.
+4. No length limit of identifiers in python.
+5. We can not use reserved keywords as identifiers. 
+
+Reserved Keywords :- There are 51 keywords in Java and there are 34 ke
+
+Reserved Words= ['True', 'False', 'None', 'and', 'or', 'not', 'is', 'if', 'elif', 'else', 'while', 'for', 'break', 'continue', 'return', 'int', 'yield', 'try', 'except', 'finally', 'raise', 'assert', 'import', 'from', 'as', 'class', 'def', 'pass', 'global', 'nonlocal', 'lambda', 'del', 'with', 'async', 'await']
+
+All 35 keywords always start with small alphabets but "True", "False", "None" start with capital letter.
+
+Switch concept is not allowed in python.
+
+Do While is not allowed in python.
+
+When we use single quotes, when we use double quotes or triple single quotes. For single line content we use single and double quotes. For multi line content we triple single quotes.
+Eg :-
+  x = 'Hi'
+  a = """This class is for python students only, to use '@' and '!' as normal character to define doc string"""
+  @ is "at".
+  
+Note :-  Supppose you have to define a variable as public, protected and private. So that how we can do it :- 
+
+"x" = Public
+"_x" = Protected
+"__x" = Private
+
+Note :- There is no char datatype in python, here we only use str()
+
+Index :- In python we can traverse the a array, from right to left and left to right, in both the directions.
+         So if you have a array :
+         a = [10,20,30,40] 
+         So to access the last element we can write a[-1] and for the first element we can write a[0].
+
+Arrays :- Array is a contigious memory structure. Suppose you have a memory in structure of 6 * 3 matrix and you have stored the value as a = [1,2,3,4,5,6,7,8,9,10,12] so when we reach the 6th memory address if the memory is not contigious then after the 6th address we will reach 1st address, if that's the case this means the memory is continous not contigious. So if we have to make a continous memory a contigious memory, we have to give a single address to each reserved cell seperately so this will make the memory contigious.
+
+  Multi-Dimenisional array :- They are knows as the arrays of arrays. So suppose you want to create a 3 * 2 array, so first create a 1-D array and now create 3 1-D array now we have to store the address of the this 3 1-D arrays at the index [0,1,2] and now the 2-D array of 3 * 2 is created.
+
+Primitive and Non-Primitive data types :- 
+  1. Primitive :- There are many types.
+                  a. Boolean
+                  b. Integer 
+                  c. Character
+                  // Integer and Character comes under the sub type of Numeric
+  2. Non-Primitive :- The size of all the non-primitive data types are always 4 bytes.
+                      There are many types.
+                      a. Class
+                      b. Interfaces
+                      c. String
+                      d. Array
+                      e. Structure
+                      f. etc.
+
+Object and classes :- So let's try to take an example of an object from Java.;
+  Eg :- Test t = new Test(); //So here the size of t is 4 bytes.
+    So here the test is the class and "t" is the reference of the class. We can also say that "test" is the data type of "t". When we write the command "new Test()", this generates a hexadecimal value in the memory and the system treats this hexadecimal value as the integer value that's why the size of "t" is 4 bytes.
+
+ Suppose you have a variable "a", then if you want to check what data type is the varialbe then you can use :- print(type(a))
+ Similarly if we can use print(id(a)), to get a hexadecimal value of the reserved cell reference id, which is use to access the value.
+
+What is Imputability in python?
+
+The main use of imputability in python is utilization of memory.
