@@ -101,3 +101,5 @@ print(set1.intersection(set2))
 
 set3 = {"Nanimo", "Bankai", "Gotei", 13, ("Ichigo", "Ken", "Saitama")}
 print(set3)
+for i in enumerate(set3, start = 1):
+  print(f"{i}")
