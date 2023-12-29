@@ -102,6 +102,100 @@ Object and classes :- So let's try to take an example of an object from Java.;
  Suppose you have a variable "a", then if you want to check what data type is the varialbe then you can use :- print(type(a))
  Similarly if we can use print(id(a)), to get a hexadecimal value of the reserved cell reference id, which is use to access the value.
 
-What is Imputability in python?
+What is Immutability in python?
 
-The main use of imputability in python is utilization of memory.
+Object reusablity concept is only for "int", "float", "bool" and "
+str", not for complex (complex variables are immutable) . The main use of imputability in python is utilization of memory.
+So suppose you have two variables a and b, now:
+  a = 10
+  b = 10
+  print(a is b)
+  print(id(a), id(b))
+  So now in the above code a reserved cell is created to store the value 10 and when the variable a is referencing to the value 10 and after that b is also referencing the value 10 then, we should create 2 reserved cell for each variable but in python we create a single reserved for the variable a and when b is also refering to the same value so in place of creating a new reserved cell, we refer both the variable to the same address.
+
+Prove that the list is mutable or immutable or not ?
+Ans. Suppose you have :-
+      my_list = [10, 20, 30, 40]
+      print(id(my_list)) # Output :- <class 'list'>
+      # Here my_list is the reference variable for the class object.
+      All fundamental data types are immutable, but is mutable object. In the existing object, you can perform any changes.
+
+Proof of mutablity of the list: - 
+  my_list = [10, 20, 30, 40, 50]
+  my_list[1] = 70 # It will replace the value of the index 1.
+  print(my_list) # Output: [10, 70, 30, 40, 50]
+  
+
+Collection Data types: -
+
+So if we want to hold a group of values as single entity, then we will go for collection related data types. 
+
+There are 8 collection related data types: -
+  1. List
+  2. Tuple
+  3. Set
+  4. Dictionary
+  5. Frozen set 
+  6. Byte array
+  7, Bytes
+  8. range
+
+1. List :- It is a sequence of value or order. If we want to reperesent a group of values or object as a single entity where duplicate values are allowed and the order is mandatory (i.e it preserves the order of insertion). We can access the list items using list. 
+
+Some points about list: -
+  1. Insertion order preserved.
+  2. Duplicate object are allowed.(Each element in the list is in the form of the object)
+  3. Indexing and Slicing are applicable.
+  4. Mutable
+  5. It is growable in nature.
+  6. Heterogenous object are allowed. Eg: list = ['PA', [8, 7], [9, 9], [7, 4], [9, 7], {'Kamehameha', 'Rasengun'}]
+  . There is a method named append, it is use to insert the value at the end of the list. 
+  Eg: lst = [10, 02, 30, 40]
+      lst.append(23)
+      # or lst.insert(len(lst), 23)
+
+Eg: -
+
+a = 10,20,30
+print(a) # Output: (10, 20, 30)
+print(a[0]) # Output: 10
+print(type(a)) # Output: <class 'tuple'>
+
+Docstring: - It provides a 
+
+List comprehension:- 
+
+Eg:- list = [10,20,30,40]
+     list = [10 if x == 10 else (20 if x == 20 else x) for x in list]
+Here the "in" keyword is returning the boolean value.
+
+Tuple :- To create a tuple we have to use "()" . It is exactly same as list, only the reperesentation is same. The only difference is that it is immutable. It means that it is only available as the read only version. We use the tuple data types if and only if the data once input must not be changed in future.
+
+Eg :- t = (10, 20, 30, 40)
+      print(t)
+      # the append and remove method are not applicable in a tuple.
+
+Proof that the tuple is immutable:-
+
+If we pass any type of single value in a tuple, so always use the single value followed by a comma.
+
+Eg:- t = (10,)
+     print(t[0])
+
+     #on the older version of python if we have a tuple with single element then 
+
+Enumerate :- This function return a tuple containing a count of every iteration (from start default is zero) and the values obtained from iterating over a sequence.
+
+Set :- Whenever we want to create a dataset with no duplicate values then we can use a set. If we want to represent a group of enteries in which duplicates are not allowed and order not required.
+
+Properties :- 
+1. Duplicates are not allowed.
+2. Order is not mandatory.
+3. Indexing and slicing not applicable.
+4. Heterogenous objects are allowed.
+5. Set is growable.
+6. Append method is not applicable on a set.
+7. Set elements are immutable.
+8. Set does not allow mutable items.
+
+Eg:- my_set = {} # Here python treats this as a dictionary.

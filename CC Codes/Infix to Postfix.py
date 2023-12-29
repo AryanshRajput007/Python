@@ -9,6 +9,7 @@ def precedence(operator):
   else:
     return 0
 
+
 def infix_to_postfix(infix):
   stack = []
   postfix = ""
@@ -40,6 +41,7 @@ def infix_to_postfix(infix):
     postfix += " "
   return postfix
 
+
 def postfix_evaluation(postfix):
   stack = []
   postfix = postfix.split()  # Split the postfix expression into tokens
@@ -63,6 +65,7 @@ def postfix_evaluation(postfix):
         print(char)
         exit()
   return stack.pop()
+
 
 infix_expression = input("Enter an infix expression: ")
 infix_expression = infix_expression.replace(" ", "")
