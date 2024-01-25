@@ -1,105 +1,103 @@
-# list = [1,2,3,1,1,1,7,8,1]
-# list.remove(3)
-# print(list)
-# # for i in range(len(list)):
-# #   if list[i] == 1:
-# #     list[i] = 10
-# # print(list)
-# for i in range(len(list) // 2):
-#   if list [i] == 1:
-#     list[i] = 10
-#   if list[len(list) - i - 1] == 1:
-#     list[len(list) - i - 1] = 10
-# print(list)
+import os
 
-# n = "shark"
-# x = [x for x in n]
-# print(x)
-# s = "abcabcbb"
-# list = []
-# for i in range(len(s)):
-#   if s[i] not in list:
-#     list.append(s[i])
-# result = len(list)
+class Student:
+    def __init__(self, StudentID, StudentName, StudentAge, StudentGrade):
+        self.StudentID = StudentID
+        self.StudentName = StudentName
+        self.StudentGrade = StudentGrade
+        self.StudentAge = StudentAge
+        self.students = []
 
-# list = [int(x) for x in input().split()]
-# list = [10 if x == 1 else(20 if x == 2 else x)  for x in list]
-# print(list)
+    def add_student(self, student):
+        self.students.append(student)
 
-# for i in range(len(list) // 2):
-#   if list [i] == 1:
-#     list[i] = 10
-#   if list[len(list) - i - 1] == 1:
-#     list[len(list) - i - 1] = 10
+    def display_info(self):
+        print(f"Student ID: {self.StudentID}\nStudent Name: {self.StudentName}\nStudent Age: {self.StudentAge}\nStudent Grade: {self.StudentGrade}")
 
-# list = []
-# n = int(input("Enter the number of elements: "))
-# for i in range(n):
-#   list.append(int(input("Enter the element: ")))
-#   if list[i] == 1:
-#     list[i] = 10
-#   if list[i] == 2:
-#     list[i] = 20
-# print(list)
 
-# def func():
-#   list = []
-#   n = int(input("Enter the number of elements: "))
-#   for i in range(n):
-#     list.append(int(input("Enter the element: ")))
-#     list [i] = (list[i] % 10) * 10
-#   return list
+class Teacher:
+    def __init__(self, TeacherID, TeacherName, TeacherAge, TeacherSubject):
+        self.TeacherID = TeacherID
+        self.TeacherName = TeacherName
+        self.TeacherAge = TeacherAge
+        self.TeacherSubject = TeacherSubject
+        self.teachers = []
 
-# print(func())
+    def add_teacher(self, teacher):
+        self.teachers.append(teacher)
 
-# n = 5
-# list = [x for x in range(n)]
-# print(list)
+    def display_info(self):
+        print(f"Teacher ID: {self.TeacherID}\nTeacher Name: {self.TeacherName}\nTeacher Age: {self.TeacherAge}\nTeacher Subject: {self.TeacherSubject}")
 
-# list = [int(x) for x in input("Enter the values seperated by spaces: ").split()]
-# list2 = [x for x in list if x % 2 == 0]
-# print("The even list is: ",list2)
-# list3 = [x for x in list if x % 2 != 0]
-# print("The odd list is: ", list3)
 
-t = (10, 20, 30, 40)
-t = t + (300,)  
-t = t[:t.index(10)] + t[t.index(10)+1:]
-print(t)
-print(id(t))
-print(type(t))
-t2 = (10,)
-print(t2[0])
+class Course:
+    def __init__(self, CourseID, CourseName, CourseTeacher, CourseStudents):
+        self.CourseID = CourseID
+        self.CourseName = CourseName
+        self.CourseTeacher = CourseTeacher
+        self.CourseStudents = CourseStudents
+        self.courses = []
 
-words = ("apple", "banana", "cherry")
-for index, word in enumerate(words, start = 1):
-    print(f"Word {index}: {word}")
+    def add_course(self, course):
+        self.courses.append(course)
 
-my_set = [3, 1, 2, 3, 4, 5, 1, 2]
-print(set(my_set))
-list1 = [1, 2, 2, 3]
-list2 = ["abc", "xyz", "abc", "rzy"]
-map = {}
+    def display_info(self):
+        print(f"Course ID: {self.CourseID}\nCourse Name: {self.CourseName}\nCourse Teacher: {self.CourseTeacher}\nCourse Students: {self.CourseStudents}")
 
-for i in range(len(list1)):
-  if list1[i] not in map:
-    map[list1[i]] = []
-  map[list1[i]].append(list2[i])
-print(map)
+if __name__ == "__main__":
+    students = []
+    teachers = []
+    courses = []
 
-s = set({})
-print(type(s))
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')  # Clear console screen
+        print("Press 1 to add a student\nPress 2 to add a teacher\nPress 3 to add a course\nPress 4 to display all students\nPress 5 to display all teachers\nPress 6 to display all courses\nPress 7 to exit")
+        choice = int(input("Enter your choice: "))
 
-set1 = {15,20,25}
-set2 = {30,40,50}
-set1.add(10)
-if 0 in set1:
-    set1.remove(0)
-print(set1.union(set2))
-print(set1)
-print(set1.intersection(set2))
+        if choice == 1:
+            StudentID = int(input("Enter the student ID: "))
+            StudentName = input("Enter the student name: ")
+            StudentAge = int(input("Enter the student age: "))
+            StudentGrade = int(input("Enter the student grade: "))
+            student_obj = Student(StudentID, StudentName, StudentAge, StudentGrade)
+            students.append(student_obj)
+            student_obj.display_info()
 
-set3 = {"Nanimo", "Bankai", "Gotei", 13, ("Ichigo", "Ken", "Saitama")}
-print(set3)
-for i in enumerate(set3, start = 1):
-  print(f"{i}")
+        elif choice == 2:
+            TeacherID = int(input("Enter the teacher ID: "))
+            TeacherName = input("Enter the teacher name: ")
+            TeacherAge = int(input("Enter the teacher age: "))
+            TeacherSubject = input("Enter the teacher subject: ")
+            teacher_obj = Teacher(TeacherID, TeacherName, TeacherAge, TeacherSubject)
+            teachers.append(teacher_obj)
+            teacher_obj.display_info()
+
+        elif choice == 3:
+            CourseID = int(input("Enter the course ID: "))
+            CourseName = input("Enter the course name: ")
+            CourseTeacher = input("Enter the course teacher: ")
+            CourseStudents = input("Enter the course students: ")
+            course_obj = Course(CourseID, CourseName, CourseTeacher, CourseStudents)
+            courses.append(course_obj)
+            course_obj.display_info()
+
+        elif choice == 4:
+            for student in students:
+                student.display_info()
+
+        elif choice == 5:
+            for teacher in teachers:
+                teacher.display_info()
+
+        elif choice == 6:
+            for course in courses:
+                course.display_info()
+
+        elif choice == 7:
+            print("Exiting...")
+            exit()
+
+        else:
+            print("Invalid choice. Please try again.")
+
+        input("Press Enter to continue...")

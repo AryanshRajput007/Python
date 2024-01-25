@@ -1,0 +1,34 @@
+Commands :- 
+1. MVI A, 50H
+2. MVI B, 60H
+3. MOV B, A # Here the value of A is stored in b.
+4. ADD B # It means that A + B
+5. LXI B # So as there are 7 registors so we can create 3 pairs i.e BC, DE, HL 
+
+How to work on a simulator:
+1. Press reset.
+2. Press set.
+3. Enter the staring address i.e 0000
+4. Now press INR. So if you want to work on it first we have to find the address and the values from the assembler and then insert the values in the simulator.
+5. Now to execute first click RES, then click GO now here you have to insert the starting address i.e 0000 Y1.
+6. Now click EXEC to execute.
+6. For result press REG and select the registor whose value you want to check.
+
+Experiment List :-
+1. Addition of two 8-bit numbers.
+2. Substraction of two 8-bit number.
+3. Multiplication of two 8-bit number.
+
+So here is the code for the 16 bit substraction :-
+
+LXI H, 5000;
+MVI M, 77H;
+MOV A,M;
+LXI H, 5001;
+MVI M, 52H;
+SUB M;
+LXI H, 5002;
+MOV M,A;
+RST 1;
+
+Note :- If you want to get the value stored at a address then first click reset then click set, now enter the address and press incrementc

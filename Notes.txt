@@ -25,7 +25,7 @@ Now in python we PVM(Python Virtual Machine) and it also implements some methods
 The working od JNI is like, when we try to execute a code the code is provided to JNI, it uses it method to interpret the code and then give the OS the revised code.
 
 
-- Byte Code :- It is a special type of code. It contains special types of symbols ans characters. Each symbol or Character to take one byte to store itself in memory. This is the reason why it is called Byte Code.
+- Byte Code :- It is a special type of code. It contains special types of symbols and characters. Each symbol or Character to take one byte to store itself in memory. This is the reason why it is called Byte Code.
 
 Modulo 3 :- Ended in 2010. Python also have some features of the modulo 3 language.
 
@@ -99,7 +99,7 @@ Object and classes :- So let's try to take an example of an object from Java.;
   Eg :- Test t = new Test(); //So here the size of t is 4 bytes.
     So here the test is the class and "t" is the reference of the class. We can also say that "test" is the data type of "t". When we write the command "new Test()", this generates a hexadecimal value in the memory and the system treats this hexadecimal value as the integer value that's why the size of "t" is 4 bytes.
 
- Suppose you have a variable "a", then if you want to check what data type is the varialbe then you can use :- print(type(a))
+ Suppose you have a variable "a", then if you want to check what data type is the variable then you can use :- print(type(a))
  Similarly if we can use print(id(a)), to get a hexadecimal value of the reserved cell reference id, which is use to access the value.
 
 What is Immutability in python?
@@ -198,4 +198,214 @@ Properties :-
 7. Set elements are immutable.
 8. Set does not allow mutable items.
 
+When we are adding a element in a set a mathematical formula is applied on the element to find the index of the element.
+
 Eg:- my_set = {} # Here python treats this as a dictionary.
+
+Dictionary :- 
+1. It is mutable. 
+2. It has key value to fetch the data. 
+3. There does not exist two values with same key. 
+4. The order is not important in Dict. 
+5. So as we know that duplicate keys are not allowed, but duplicate values are allowed. 
+6. If a key exist corresponding to a value, then we can update the value corresponding to the key. 
+7. Heterogenous elements can be stored. Indexing and slicing not allowed.
+
+Why dict() function creates an set where as it is possible to create a empty set using data type?
+
+Eg: - {1 : 10, 2 : 20, 3 : 30, 4 : 40}
+
+Functions: - Function has a prototype. Prototype means modifiable. The Prototype of a function have 5 things: -
+1. Access Specifier
+2. Access Modifier
+3. Return type
+4. Name
+5. Arguments
+
+Eg: - public static void main(String [] args)
+Here,  
+Public :- Access Specifier
+Static :- Access Modifier
+void :- return type
+main :- Name
+String[] args :- Arguments
+
+In python the "def" contains the whole prototype of a function.
+
+Object:- It is a thing that has some property and behaviour. Here the properties means the data members of the class and behaviour means the member function of a class.
+
+Function: - It is always independent of anything.
+
+Method: - It is always dependent on anything.
+
+Class: - It is nothing but a container of similar types of objects. We can also term the class as the implementation of an object.
+ 
+__init__ () :- It is used for the initialization of an object. If it is run according to a class it will instantiates the class and vice versa for an object too.
+
+At the time of an object creation those properties of the object are initialized at that moment. That's why say that, Object is an instance of an class.
+
+Suppose a code:-
+
+class Employee:
+    def __init__(self, name, emp_id):
+        self.name = name
+        self.emp_id = emp_id
+
+name = input("Enter employee name: ")
+emp_id = input("Enter employee ID: ")
+emp = Employee(name, emp_id)
+
+print(f"Employee Name: {emp.name}, Employee ID: {emp.emp_id}")
+
+In python/Java the "." operator is known as the association operator.
+
+When we use self.name or anything with the self keyword than this process is known as "Data Shadowing". We use the self keyword when the variable name of local and instance is same. It is similar to this keyword from java.
+
+Inheritance :- Implementing an Object using an existing object.
+
+1. __init__ is a special type of method that is working automatically as soon as the object of that class is created.
+
+2. Python only supports the method overloading, and when a language supports method overloading.
+
+Overloading: - Overloading refers to the ability for functions or operators to behave differently depending on the input parameters.
+
+Inheritance: -Inheritance is a mechanism in which one class acquires the properties and behaviors of another class.
+
+What is Constructer in Python?
+A Constructer is nothing but a set of method. 
+Non-parameterised Constructer: - def __init__(self):
+
+A Non-parameterised constructer cannot return any value other than None.
+
+Python won't support method/constructer overloading because of type concept are not available (Dynamically Typed) but how we can see only.
+
+Eg:- 
+def m1(i):
+  print(i)
+
+m1(10)
+m1('Hello')
+m1(20.36)
+
+Polymorphism:- One name many forms.
+Eg: - 
+Let's take an example, suppose i man name Gopal, for his mother he is her son, for her sister he is her brother, for his friend he is someone else.
+
+Eg: - 
+def show(self):
+  ....
+
+def show(self, val):
+  ....
+
+def show(self, val1, val2):
+  ....
+
+
+Compile Time binding: - So when ever it is static then the memory is allocated for that static before the object is formed.
+
+Python supports several types of arguments:
+
+1. Positional Aguments:- These are the most common arguments, where the arguments value is based on its position.
+Eg: - In func(a, b). a and b are the positional arguments.
+2. Keyword Arguments:- The paramete name identifies these and can be supplied in any order, making your code more readable.
+Eg: - For instance, func(a = 1, b = 2) explicitly states which parameter each argument corresponds to.
+
+3. Default arguments:- A parameter with a default value can be qomitted in a function call. The function will then use the default value..
+
+4. Varilable-length Arguments:- You may need to determine the number of arguments supplied to your function.
+
+Python allows you to handle this with variable length arguments and defined with an asterisk *args and **kwargs.
+
+#Example:-
+
+def name(title, name, greeting="Hello"):
+  return f"{greeting} {title} {name}!"
+
+# positional arguments
+print(name("Dr", "Smith"))
+
+# Keyword Arguments
+print(name(name = "Smith", title = "Prof"))
+
+# Default Arguments
+print(name("Mr", "Brown"))
+
+# All combined
+print(name("Mr", "Brown", greeting="Good Morning"))
+
+
+Abstraction: - It means to show the functionality and hide the complexity.
+
+Types of Variable:-
+1. Instance Variable: - Instance variable is a variable which is declared inside the method and belongs to the object.
+
+2. Static Variable: - Static variables are variables that are common to all instances of a class. They are defined within a class but outside any of the class's methods.
+
+3. Local Variable: - A local variable is a variable that is declared inside a function or block and can only be accessed within that function or block. When the function or block is exited, the local variable goes out of scope and is no longer accessible.
+
+Where can we define a instance variable?
+
+1. Inside Constructer(def __init__)
+2. Inside instance method.(An instance method in object-oriented programming is a method that is associated with an instance of a class. It operates on the instance's data and can modify its state)
+3. Outside of class by using reference variable.
+  3.1 If you are adding any instance variable for an object outside of the class those instance variable are available only for that particular object not for the remaining object, so we can call from outside the class.
+
+class Test:
+  def __init__(self):
+    self.a = 10
+    self.b = 20
+
+  def m1(self):
+    self.c = 30
+    self.d = 40
+
+t1 = Test()
+print(t1.__dict__)
+t2 = Test()
+print(t2.__dict__)
+t1.m1()
+t2.m1()
+print("After calling instance method m1(): ", t2.__dict__)
+t1.c = 300
+print("After calling instance method m1(): ", t1.__dict__)
+
+
+Note: - In python there does not exist any compile time eof the program.
+
+An unwanted, unexpected event that disturbs your normal flow of the program is by default consider as an execption or error.
+
+There are two types of execption:-
+  1. Built-in 
+  2. User-Defined
+
+Eg:-
+  1. InternetError
+  2. SleepingError
+  3. FileNotFoundError
+  4. ZeroDivisionError
+  5. ValueError
+
+Q. What is the main objective of exception handling?
+Ans.
+  1. It is highly recommnedation to handle the exception.
+  2. The main objective of execption hanlding is gracefull/normal termination of the application(i.e. we should not block out resources and we should not miss anything).
+
+Execption handling doese not means repairing an execption. We have to define alternative way to continue rest of the program normally.
+
+Eg:-
+
+import sys
+
+randomlist = ['a', 0, 1, 7]
+for entry in randomlist:
+  try:
+    print(entry)
+    print("The entry is: ", entry)
+    r = 1/int(entry)
+    break
+  except:
+    print("Oops!", sys.exc_info()[0], "occured.") # Here we can use 0 index for the exception type and 1 index for the exception value and 2 index for the traceback
+    print("Next entry.")
+    print()
+print("The reciprocal of", entry, "is", r)
